@@ -1,0 +1,256 @@
+.page {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 28px;
+  background: linear-gradient(135deg, #fff8fc 0%, #fceaf3 100%);
+  color: #663b52;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.chatCard {
+  display: flex;
+  flex-direction: column;
+  width: min(780px, 100%);
+  height: min(790px, calc(100dvh - 56px));
+  min-height: 460px;
+  overflow: hidden;
+  border: 1px solid #f3dce8;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 16px 45px rgba(188, 98, 143, 0.12);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px;
+  border-bottom: 1px solid #f6e5ed;
+  background: #fffafd;
+}
+
+.avatar,
+.welcomeAvatar,
+.messageAvatar {
+  color: #fff;
+  background: #e88bb8;
+  font-weight: 750;
+  letter-spacing: -0.04em;
+}
+
+.brandName {
+  color: #a84c7b;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.restartButton {
+  color: #af6389;
+  font-weight: 500;
+  border-radius: 9px;
+  transition: color 180ms ease, background 180ms ease;
+}
+
+.restartButton:hover {
+  color: #913b68;
+  background: #fce7f1;
+}
+
+.messages {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  padding: 28px 26px;
+  scrollbar-width: thin;
+  scrollbar-color: #ecc2d7 transparent;
+  background: #fffafd;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+  padding: 24px 12px;
+  text-align: center;
+}
+
+.welcomeAvatar {
+  margin-bottom: 20px;
+  background: #efaccb;
+  box-shadow: 0 8px 25px rgba(218, 110, 164, 0.15);
+  font-size: 24px;
+}
+
+.welcomeTitle {
+  color: #8c456c;
+  font-size: clamp(23px, 4vw, 29px);
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+.welcomeText {
+  margin-top: 10px;
+  max-width: 350px;
+  color: #947487;
+  line-height: 1.65;
+}
+
+.messageRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  animation: showMessage 200ms ease-out both;
+}
+
+.userRow {
+  justify-content: flex-end;
+}
+
+.messageAvatar {
+  flex-shrink: 0;
+  background: #e9a0c3;
+  font-size: 12px;
+}
+
+.bubble {
+  max-width: min(76%, 500px);
+  border: 1px solid transparent;
+  border-radius: 16px;
+  overflow-wrap: anywhere;
+}
+
+.messageText {
+  white-space: pre-wrap;
+  line-height: 1.65;
+}
+
+.botBubble {
+  background: #fcebf3;
+  border-color: #f7dce9;
+  color: #70445c;
+  border-bottom-left-radius: 5px;
+}
+
+.botBubble .messageText {
+  color: #70445c;
+}
+
+.userBubble {
+  background: #ce5b93;
+  border-color: #ce5b93;
+  color: #fff;
+  border-bottom-right-radius: 5px;
+  box-shadow: 0 4px 12px rgba(199, 80, 140, 0.12);
+}
+
+.userBubble .messageText {
+  color: #fff;
+}
+
+.footer {
+  padding: 18px 24px 14px;
+  background: #fff;
+  border-top: 1px solid #f6e5ed;
+}
+
+.composer {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 6px;
+  border: 1px solid #efd0e0;
+  border-radius: 14px;
+  background: #fffafd;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.composer:focus-within {
+  border-color: #dc83af;
+  box-shadow: 0 0 0 3px rgba(220, 131, 175, 0.12);
+}
+
+.textarea {
+  flex: 1;
+  min-width: 0;
+}
+
+.textareaInput {
+  min-height: 40px;
+  padding: 10px 9px;
+  color: #603d51;
+  background: transparent;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: none;
+}
+
+.textareaInput::placeholder {
+  color: #b69aa9;
+}
+
+.sendButton {
+  flex-shrink: 0;
+  background: #d65d98;
+  color: #fff;
+  border-radius: 10px;
+  transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.sendButton:hover:not(:disabled) {
+  background: #b9447e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(185, 68, 126, 0.22);
+}
+
+.sendButton:disabled {
+  opacity: 0.5;
+  box-shadow: none;
+}
+
+.hint {
+  margin-top: 9px;
+  color: #b198a6;
+  font-size: 11px;
+  text-align: center;
+}
+
+@keyframes showMessage {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 620px) {
+  .page { padding: 0; }
+  .chatCard {
+    width: 100%;
+    height: 100dvh;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .header { padding: 15px 18px; }
+  .messages { padding: 20px 16px; }
+  .footer { padding: 12px 15px 10px; }
+  .bubble { max-width: 83%; }
+  .restartButton { padding-inline: 4px; }
+  .hint { font-size: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page *,
+  .page *::before,
+  .page *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
