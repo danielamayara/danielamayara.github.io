@@ -22,12 +22,91 @@
     .contact-section{background:#201528}.contact-layout{display:grid;grid-template-columns:1fr auto;align-items:center;gap:35px}.contact-layout p{max-width:560px;color:#cbb7cc;text-align:justify}.contact-links{display:flex;flex-wrap:wrap;gap:12px}.foot{background:#100c16;border-top:1px solid #40263c;padding:26px 0}.foot-inner{display:flex;justify-content:space-between;gap:15px;align-items:center;flex-wrap:wrap}.foot small{color:#b7a1ba}.achievement{position:fixed;right:22px;bottom:22px;background:#2b2035;border:1px solid var(--pink);padding:14px 18px;border-radius:10px;box-shadow:var(--shadow);z-index:60;max-width:290px;transform:translateY(130%);opacity:0;transition:transform .4s,opacity .4s}.achievement.show{transform:translateY(0);opacity:1}.achievement strong{display:block;color:var(--yellow);font-size:13px}.achievement span{display:block;font-size:12px;color:#e6d7e9}.mob-menu{display:none}
     @media(max-width:960px){.hero-grid,.about-grid,.projects-wrap{grid-template-columns:1fr}.hero{min-height:0}.window{max-width:600px;margin:auto}.project-preview{min-height:320px}.project-body{padding:31px}.hero-grid{gap:55px}}@media(max-width:680px){.wrapper{width:calc(100% - 34px)}.top-inner{min-height:66px;flex-wrap:wrap;gap:10px;padding:12px 0}.nav{width:100%;justify-content:space-between;gap:6px;order:3}.nav a{font-size:11px}.online{font-size:10px}.hero{padding:72px 0 65px}h1{font-size:clamp(45px,12vw,72px)}.hero-description{font-size:15px}.hero-buttons .btn{flex:1}.profile-panel{padding:19px}.player-photo{width:108px;height:138px}.player-info h2{font-size:22px}.sticker{right:-6px}.section-head{align-items:start}.counter{display:none}section.content{padding:67px 0}.panel{padding:21px}.quest-map{grid-template-columns:1fr}.project-preview{padding:22px}.project-body{padding:24px}.contact-layout{grid-template-columns:1fr}.contact-links{width:100%}.contact-links a{flex:1}.foot-inner{flex-direction:column;align-items:flex-start}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
-  </style>
+
+    /* LAYOUT FULL-WIDTH — aproveita a área inteira do navegador */
+    .wrapper {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding-inline: clamp(22px, 4.5vw, 110px);
+    }
+    .top-inner { min-height: 82px; }
+    .hero {
+      min-height: calc(100svh - 82px);
+      padding-block: clamp(64px, 7vh, 120px);
+    }
+    .hero-grid {
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+      gap: clamp(35px, 5vw, 110px);
+    }
+    h1 { font-size: clamp(58px, 7vw, 125px); }
+    .hero-description { max-width: 780px; font-size: clamp(16px, 1.17vw, 22px); }
+    .window { width: 100%; max-width: 800px; justify-self: end; }
+    .profile-panel { padding: clamp(26px, 3vw, 55px); }
+    .player-photo { width: clamp(130px, 12vw, 205px); height: clamp(155px, 15vw, 240px); }
+    .player-info h2 { font-size: clamp(26px, 2.9vw, 48px); }
+    .character-stats .stat { padding-block: clamp(12px, 1.3vw, 25px); }
+    section.content { padding-block: clamp(72px, 7vw, 125px); }
+    .section-title { font-size: clamp(36px, 4.4vw, 75px); }
+    .about-grid { gap: clamp(20px, 2.4vw, 48px); }
+    .panel { padding: clamp(24px, 2.5vw, 48px); }
+    .about-copy { font-size: clamp(15px, 1.08vw, 19px); }
+    .projects-wrap { grid-template-columns: 1.08fr .92fr; }
+    .project-preview { min-height: clamp(410px, 34vw, 650px); }
+    .mock-app { width: min(620px, 94%); }
+    .project-body { padding: clamp(28px, 3.5vw, 65px); }
+    .project-body h3 { font-size: clamp(30px, 3vw, 52px); }
+
+    /* Tablets: sem cards espremidos, com largura de conteúdo completa */
+    @media (max-width: 1050px) {
+      .hero { min-height: auto; }
+      .hero-grid, .about-grid, .projects-wrap { grid-template-columns: minmax(0, 1fr); }
+      .hero-grid { gap: 62px; }
+      .window { max-width: 760px; justify-self: center; }
+      .hero-description { max-width: 760px; }
+      .project-preview { min-height: 410px; }
+      .mock-app { width: min(530px, 90%); }
+    }
+    /* Celulares: largura total, sem cortes nem rolagem horizontal */
+    @media (max-width: 680px) {
+      .wrapper { width: 100%; padding-inline: 18px; }
+      .top-inner { min-height: 70px; }
+      .hero { padding-block: 62px 70px; }
+      .hero-grid { gap: 48px; }
+      h1 { font-size: clamp(48px, 12vw, 76px); }
+      .hero-description { font-size: 15px; }
+      .window { transform: none; width: 100%; }
+      .window::after { display: none; }
+      .sticker { right: -5px; top: -18px; }
+      .profile-panel { padding: 19px; }
+      .player-photo { width: 105px; height: 137px; }
+      .player-info h2 { font-size: 23px; }
+      .section-title { font-size: clamp(32px, 8.3vw, 48px); }
+      section.content { padding-block: 68px; }
+      .panel { padding: 22px; }
+      .project-preview { padding: 20px; min-height: 330px; }
+      .project-body { padding: 24px; }
+      .mock-app { width: 100%; }
+    }
+    @media (max-width: 390px) {
+      .wrapper { padding-inline: 14px; }
+      .player-photo { width: 87px; height: 118px; }
+      .player-top { gap: 12px; }
+      .player-info h2 { font-size: 20px; }
+      .hero-buttons { flex-direction: column; }
+      .hero-buttons .btn { width: 100%; }
+    }
+  
+
+    .hero-name{font-size:clamp(30px,4.15vw,72px);white-space:nowrap;letter-spacing:-.065em}
+    @media(max-width:960px){.hero-name{font-size:clamp(35px,6.2vw,76px)}}
+    @media(max-width:680px){.hero-name{font-size:clamp(23px,6.7vw,44px);letter-spacing:-.065em}}
+</style>
 </head>
 <body>
 <header class="topbar"><div class="wrapper top-inner"><a href="#inicio" class="logo" aria-label="Início do portfólio">daniela<span>.dev</span><em> ✦</em></a><div class="online"><span class="dot"></span>PLAYER ONLINE</div><nav class="nav" aria-label="Menu principal"><a href="#inicio">Início</a><a href="#sobre">Personagem</a><a href="#habilidades">Habilidades</a><a href="#projetos">Missões</a><a href="#contato">Contato</a></nav></div></header>
 <main>
-<section class="hero" id="inicio"><div class="wrapper hero-grid"><div><span class="eyebrow">Bem-vindo ao meu universo</span><h1><span class="line">Oi, eu sou</span><span class="line gradient">Daniela.</span></h1><p class="hero-description">Estudante de <strong>Ciência de Dados na Fatec Adamantina</strong> e estagiária de TI. Gosto de transformar ideias em interfaces, experimentar soluções e entender como cada parte de uma aplicação funciona. Este é meu espaço para mostrar o que venho construindo.</p><div class="hero-buttons"><a href="#projetos" class="btn primary">▶ Explorar projetos</a><a href="#sobre" class="btn secondary">Conhecer a player ↗</a></div><div class="hero-notes"><span>Front-end</span><span>Ciência de Dados</span><span>Aprendizado contínuo</span></div></div><div class="window" aria-label="Cartão de personagem"><div class="sticker">PLAYER 01 ★</div><div class="window-header"><div class="traffic"><i></i><i></i><i></i></div><span>character_profile.exe</span></div><div class="profile-panel"><div class="player-top"><img src="assets/foto-daniela.jpg" alt="Foto de Daniela Mayara" class="player-photo"><div class="player-info"><small>PERSONAGEM PRINCIPAL</small><h2>Daniela<br>Mayara</h2><p>Front-end em desenvolvimento</p></div></div><div class="level"><div class="level-top"><span>PROGRESSO DA JORNADA</span><span>EM EVOLUÇÃO</span></div><div class="bar" aria-label="Barra de progresso decorativa"><span></span></div><div class="character-stats"><div class="stat"><strong>UI / UX</strong><small>Interesse</small></div><div class="stat"><strong>WEB</strong><small>Projetos</small></div><div class="stat"><strong>DADOS</strong><small>Formação</small></div></div></div></div></div></div></section>
+<section class="hero" id="inicio"><div class="wrapper hero-grid"><div><span class="eyebrow">Bem-vindo ao meu universo</span><h1 class="hero-name">Oi, eu sou <span class="gradient">Daniela.</span></h1><p class="hero-description">Estudante de <strong>Ciência de Dados na Fatec Adamantina</strong> e estagiária de TI. Gosto de transformar ideias em interfaces, experimentar soluções e entender como cada parte de uma aplicação funciona. Este é meu espaço para mostrar o que venho construindo.</p><div class="hero-buttons"><a href="#projetos" class="btn primary">▶ Explorar projetos</a><a href="#sobre" class="btn secondary">Conhecer a player ↗</a></div><div class="hero-notes"><span>Front-end</span><span>Ciência de Dados</span><span>Aprendizado contínuo</span></div></div><div class="window" aria-label="Cartão de personagem"><div class="sticker">PLAYER 01 ★</div><div class="window-header"><div class="traffic"><i></i><i></i><i></i></div><span>character_profile.exe</span></div><div class="profile-panel"><div class="player-top"><img src="assets/foto-daniela.jpg" alt="Foto de Daniela Mayara" class="player-photo"><div class="player-info"><small>PERSONAGEM PRINCIPAL</small><h2>Daniela<br>Mayara</h2><p>Front-end em desenvolvimento</p></div></div><div class="level"><div class="level-top"><span>PROGRESSO DA JORNADA</span><span>EM EVOLUÇÃO</span></div><div class="bar" aria-label="Barra de progresso decorativa"><span></span></div><div class="character-stats"><div class="stat"><strong>UI / UX</strong><small>Interesse</small></div><div class="stat"><strong>WEB</strong><small>Projetos</small></div><div class="stat"><strong>DADOS</strong><small>Formação</small></div></div></div></div></div></div></section>
 <section class="content" id="sobre"><div class="wrapper"><div class="section-head"><div><div class="section-label">01 / FICHA DA PERSONAGEM</div><h2 class="section-title">Quem está <span>jogando?</span></h2></div><span class="counter">STATUS: EM FORMAÇÃO</span></div><div class="about-grid"><article class="panel"><div class="panel-label">SOBRE MIM</div><p class="about-copy">Sou Daniela Mayara da Silva Lemos e curso Ciência de Dados na Fatec Adamantina. Também atuo como estagiária de TI e tenho interesse especial por desenvolvimento front-end.</p><p class="about-copy">Gosto da parte criativa de construir telas, mas também de compreender os fluxos, organizar informações e encontrar maneiras mais simples de resolver problemas. Fora da programação, gosto de ler e jogar.</p></article><article class="panel"><div class="panel-label">INFORMAÇÕES DA PLAYER</div><div class="data-row"><span>Nome</span><strong>Daniela Mayara</strong></div><div class="data-row"><span>Classe</span><strong>Desenvolvimento front-end</strong></div><div class="data-row"><span>Formação</span><strong>Ciência de Dados</strong></div><div class="data-row"><span>Instituição</span><strong>Fatec Adamantina</strong></div><div class="data-row"><span>Ocupação</span><strong>Estagiária de TI</strong></div></article></div></div></section>
 <section class="content" id="habilidades"><div class="wrapper"><div class="section-head"><div><div class="section-label">02 / INVENTÁRIO</div><h2 class="section-title">Meu <span>kit de ferramentas.</span></h2></div><span class="counter">SKILLS / EM DESENVOLVIMENTO</span></div><article class="panel"><div class="panel-label">TECNOLOGIAS E ÁREAS QUE EXPLORO</div><p class="muted">Ferramentas presentes nos meus estudos e projetos. Sem porcentagens inventadas: aqui o inventário cresce conforme eu aprendo.</p><div class="skills"><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Mantine</span><span class="chip">Git / GitHub</span><span class="chip">Python</span><span class="chip">SQL</span></div></article><div class="quest-map"><div class="quest"><span class="quest-index">CAPÍTULO 01</span><strong>Estudo</strong><p>Ciência de Dados e fundamentos de programação.</p></div><div class="quest"><span class="quest-index">CAPÍTULO 02</span><strong>Prática</strong><p>Projetos web, interfaces e experiência do usuário.</p></div><div class="quest"><span class="quest-index">CAPÍTULO 03</span><strong>Evolução</strong><p>Aplicação do aprendizado em desafios reais.</p></div></div></div></section>
 <section class="content" id="projetos"><div class="wrapper"><div class="section-head"><div><div class="section-label">03 / MISSÕES DESBLOQUEADAS</div><h2 class="section-title">Projetos <span>em destaque.</span></h2></div><span class="counter">01 PROJETO PUBLICADO</span></div><article class="projects-wrap"><div class="project-preview"><span class="project-number">PRJ-001 / ONLINE</span><div class="mock-app" aria-label="Ilustração da interface do chatbot Zuzu"><div class="mock-head"><span>● Zuzu</span><span>Nova conversa ↻</span></div><div class="mock-main"><div class="mock-logo">Z</div><strong>Converse com o Zuzu</strong><div class="mock-bubble">Oi! Eu sou o Zuzu. Como posso ajudar?</div><div class="mock-bubble mock-user">Qual é seu nome?</div></div><div class="mock-foot">Digite sua mensagem... ↗</div></div></div><div class="project-body"><span class="section-label">MISSÃO 001 / APLICAÇÃO WEB</span><h3>Chatbot Zuzu</h3><p>Chatbot com interface responsiva e uma API própria no Next.js. As respostas são definidas por regras e reconhecimento de palavras-chave, sem depender de um serviço externo de inteligência artificial.</p><div class="skills"><span class="chip">Next.js</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Mantine</span><span class="chip">CSS Modules</span></div><div class="project-links"><a class="btn primary" href="https://chatbot-zuzu-sand.vercel.app/" target="_blank" rel="noopener noreferrer">▶ Jogar / Testar Zuzu</a><a class="btn secondary" href="https://github.com/danielamayara/danielamayara.github.io" target="_blank" rel="noopener noreferrer">↗ Repositório</a></div><details class="project-extra"><summary>+ Abrir ficha da missão</summary><p>O desafio foi criar um fluxo de conversa que recebe mensagens no frontend, envia os dados para <code>/api/chat</code> e exibe a resposta retornada pela API. O projeto serviu para praticar React, gerenciamento de estado, rotas do Next.js e construção de interfaces com Mantine.</p></details></div></article><div class="project-more"><strong>Próxima fase ainda não desbloqueada.</strong> Quando um novo projeto estiver pronto, ele entra aqui como uma nova missão — sem misturar os detalhes do Zuzu.</div></div></section>
