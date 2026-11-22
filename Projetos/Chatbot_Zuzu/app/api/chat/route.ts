@@ -54,7 +54,7 @@ function gerarResposta(mensagem: string): string {
 
   // Respostas de conversa.
   if (/\b(tudo bem|como voce esta|como vai)\b/.test(texto)) {
-    return "Tudo certo por aqui!;
+    return "Tudo certo por aqui!";
   }
 
   if (/\b(oi|ola|opa|e ai|bom dia|boa tarde|boa noite)\b/.test(texto)) {
