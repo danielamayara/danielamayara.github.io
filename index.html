@@ -1,0 +1,1711 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfólio de Daniela Mayara da Silva Lemos, estudante de Ciência de Dados na Fatec Adamantina." />
+
+  <title>Daniela Mayara | Portfólio</title>
+
+  <style>
+    :root {
+      --primary: #e91e73;
+      --primary-dark: #aa1451;
+      --primary-light: #fff0f6;
+      --dark: #1b1520;
+      --dark-soft: #2c202d;
+      --background: #faf8fa;
+      --white: #ffffff;
+      --text: #29212b;
+      --muted: #716675;
+      --border: #e9dfe6;
+      --shadow: 0 15px 45px rgba(49, 19, 38, .07);
+      --ease: cubic-bezier(.22, 1, .36, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: var(--primary);
+      color: white;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, a, summary {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(1160px, 90%);
+      margin: auto;
+    }
+
+    /* TEXTOS JUSTIFICADOS */
+
+    .hero-description,
+    .about-description,
+    .about-card p,
+    .section-description,
+    .project-description,
+    .project-overview p,
+    .detail-card p,
+    .contact-description {
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    /* ANIMAÇÕES */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floating {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(233,30,115,.3);
+      }
+      50% {
+        box-shadow: 0 0 0 8px rgba(233,30,115,0);
+      }
+    }
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(-12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      animation: fadeUp .8s var(--ease) both;
+    }
+
+    .delay-1 { animation-delay: .12s; }
+    .delay-2 { animation-delay: .24s; }
+    .delay-3 { animation-delay: .36s; }
+
+    /* HEADER */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(27,21,32,.96);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .navbar {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      color: white;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .nav-links a {
+      font-size: .86rem;
+      font-weight: 600;
+      color: #c4b7c3;
+      transition: color .3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-contact {
+      background: var(--primary);
+      color: white !important;
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: background .3s, transform .3s !important;
+    }
+
+    .nav-contact:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      background: var(--dark);
+      color: white;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.025) 1px,
+          transparent 1px
+        );
+      background-size: 55px 55px;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      right: -150px;
+      top: -180px;
+      background: rgba(233,30,115,.2);
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+    }
+
+    .hero-layout {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 45px;
+      align-items: center;
+      padding: 105px 0;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #f48bb7;
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 27px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    /* NOME SEM QUEBRA DE LINHA */
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5.1vw, 4.6rem);
+      font-weight: 800;
+      letter-spacing: -.055em;
+      line-height: 1.15;
+      white-space: nowrap;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero-description {
+      color: #c2b7c4;
+      max-width: 650px;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      margin-bottom: 33px;
+    }
+
+    .hero-description strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      border-radius: 9px;
+      padding: 14px 23px;
+      font-size: .9rem;
+      font-weight: 700;
+      transition:
+        transform .35s var(--ease),
+        box-shadow .35s,
+        background .35s;
+    }
+
+    .button-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 10px 25px rgba(233,30,115,.2);
+    }
+
+    .button-primary:hover {
+      background: #fb388b;
+      transform: translateY(-4px);
+      box-shadow: 0 18px 32px rgba(233,30,115,.3);
+    }
+
+    .button-outline {
+      color: white;
+      border: 1px solid #5c495c;
+    }
+
+    .button-outline:hover {
+      border-color: var(--primary);
+      background: rgba(233,30,115,.08);
+      transform: translateY(-4px);
+    }
+
+    /* PAINEL LATERAL */
+
+    .hero-panel {
+      position: relative;
+      padding: 30px;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      backdrop-filter: blur(15px);
+      animation: floating 8s ease-in-out infinite;
+    }
+
+    .panel-heading {
+      font-family: Consolas, monospace;
+      font-size: .72rem;
+      letter-spacing: 1.3px;
+      color: #f48bb7;
+      margin-bottom: 25px;
+    }
+
+    .panel-item {
+      padding: 17px 0;
+      border-top: 1px solid rgba(255,255,255,.1);
+    }
+
+    .panel-item small {
+      display: block;
+      color: #9e8e9f;
+      font-size: .7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .panel-item strong {
+      font-size: .93rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .panel-footer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 24px;
+      font-size: .75rem;
+      color: #d5b9c9;
+    }
+
+    .panel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      animation: pulse 3s infinite;
+    }
+
+    /* SECTIONS */
+
+    .section {
+      padding: 105px 0;
+    }
+
+    .section-kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: .75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 17px;
+    }
+
+    .section-kicker::before {
+      content: "";
+      width: 25px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    .section-title {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1.2;
+    }
+
+    .section-title span {
+      color: var(--primary-dark);
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 700px;
+      margin-top: 17px;
+      font-size: 1.02rem;
+      line-height: 1.9;
+    }
+
+    /* SOBRE */
+
+    .about {
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 75px;
+      align-items: center;
+    }
+
+    .about-description {
+      margin-top: 23px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.95;
+    }
+
+    .about-card {
+      padding: 38px;
+      background: #fcf9fb;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      position: relative;
+    }
+
+    .about-card::before {
+      content: "";
+      position: absolute;
+      width: 4px;
+      height: 65px;
+      left: 0;
+      top: 35px;
+      background: var(--primary);
+    }
+
+    .about-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+
+    .about-card p {
+      color: var(--muted);
+      font-size: .98rem;
+      line-height: 1.9;
+      margin-bottom: 15px;
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-info {
+      margin-top: 25px;
+      padding-top: 23px;
+      border-top: 1px solid var(--border);
+    }
+
+    .info-label {
+      color: var(--primary-dark);
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .info-value {
+      font-size: .92rem;
+      font-weight: 600;
+    }
+
+    /* ÁREA DE PROJETOS */
+
+    .projects {
+      background: #f7f3f6;
+    }
+
+    .projects-heading {
+      margin-bottom: 48px;
+    }
+
+    .projects-heading .section-description {
+      max-width: 750px;
+    }
+
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+
+    /*
+      Cada .project-case é um projeto independente.
+
+      Para adicionar novos projetos:
+      1. Duplique o bloco <details class="project-case">.
+      2. Altere número, título, resumo e tecnologias.
+      3. Atualize os quatro blocos do projeto.
+      4. Remova "open" dos projetos que devem começar fechados.
+
+      Tudo funciona sem JavaScript.
+    */
+
+    .project-case {
+      background: white;
+      border: 1px solid #e5d8e1;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition:
+        border-color .35s,
+        box-shadow .35s,
+        transform .35s var(--ease);
+    }
+
+    .project-case:hover {
+      border-color: #e6b2ca;
+      box-shadow: 0 23px 50px rgba(64,22,48,.11);
+    }
+
+    .project-case[open] {
+      border-color: #e6b2ca;
+    }
+
+    /* CABEÇALHO INDIVIDUAL DO PROJETO */
+
+    .project-summary {
+      display: block;
+      list-style: none;
+      cursor: pointer;
+    }
+
+    .project-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .project-summary::marker {
+      content: "";
+    }
+
+    .project-banner {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      background: white;
+      min-height: 275px;
+    }
+
+    .project-main {
+      padding: 40px 45px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 27px;
+    }
+
+    .project-index {
+      font-size: .73rem;
+      font-family: Consolas, monospace;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--primary-dark);
+    }
+
+    .project-category {
+      background: #fff0f6;
+      color: var(--primary-dark);
+      padding: 6px 11px;
+      border-radius: 6px;
+      font-size: .72rem;
+      font-weight: 700;
+    }
+
+    .project-name {
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+      margin-bottom: 13px;
+    }
+
+    .project-description {
+      color: var(--muted);
+      font-size: .96rem;
+      max-width: 650px;
+      line-height: 1.85;
+    }
+
+    .project-stack {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 24px;
+    }
+
+    .stack-tag {
+      padding: 6px 11px;
+      background: #f7f1f5;
+      border: 1px solid #eadde5;
+      border-radius: 6px;
+      font-size: .75rem;
+      font-weight: 600;
+      color: #664a60;
+    }
+
+    /* LATERAL DO PROJETO */
+
+    .project-side {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(
+        145deg,
+        #301627,
+        #771d49,
+        #c51d65
+      );
+      padding: 30px;
+      color: white;
+    }
+
+    .project-side::before {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50%;
+      right: -110px;
+      top: -110px;
+    }
+
+    .project-side::after {
+      content: "";
+      position: absolute;
+      width: 165px;
+      height: 165px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 50%;
+      right: -50px;
+      top: -35px;
+    }
+
+    .project-side-label {
+      font-family: Consolas, monospace;
+      font-size: .72rem;
+      letter-spacing: 1.5px;
+      color: #ffcade;
+      z-index: 1;
+    }
+
+    .project-side-number {
+      font-size: 7rem;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -8px;
+      color: rgba(255,255,255,.15);
+      align-self: flex-end;
+    }
+
+    .project-expand {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      position: relative;
+      z-index: 1;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,.25);
+      font-size: .85rem;
+      font-weight: 700;
+    }
+
+    .expand-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(255,255,255,.5);
+      border-radius: 50%;
+      font-size: 1.2rem;
+      transition:
+        transform .4s var(--ease),
+        background .3s;
+    }
+
+    .project-summary:hover .expand-icon {
+      background: rgba(255,255,255,.15);
+      transform: translateY(3px);
+    }
+
+    .project-case[open] .expand-icon {
+      transform: rotate(180deg);
+    }
+
+    .project-case[open] .project-summary:hover .expand-icon {
+      transform: rotate(180deg) translateY(-3px);
+    }
+
+    .expand-text-open {
+      display: none;
+    }
+
+    .project-case[open] .expand-text-closed {
+      display: none;
+    }
+
+    .project-case[open] .expand-text-open {
+      display: inline;
+    }
+
+    /* DETALHAMENTO INDIVIDUAL */
+
+    .project-content {
+      padding: 45px;
+      background: #fff;
+      border-top: 1px solid var(--border);
+      animation: reveal .45s var(--ease) both;
+    }
+
+    .project-overview {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 30px;
+      align-items: start;
+      padding-bottom: 38px;
+      margin-bottom: 38px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .overview-label {
+      font-family: Consolas, monospace;
+      color: var(--primary-dark);
+      font-size: .73rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    .project-overview p {
+      color: var(--muted);
+      font-size: .98rem;
+      line-height: 1.95;
+    }
+
+    .details-heading {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 25px;
+    }
+
+    .details-heading h4 {
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .details-heading::after {
+      content: "";
+      height: 1px;
+      background: var(--border);
+      flex: 1;
+    }
+
+    /* QUATRO ETAPAS DO PROJETO */
+
+    .project-details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 18px;
+    }
+
+    .detail-card {
+      position: relative;
+      border: 1px solid #ecdee7;
+      border-radius: 12px;
+      padding: 30px;
+      background: #fdfafc;
+      transition:
+        transform .4s var(--ease),
+        box-shadow .4s var(--ease),
+        border-color .3s;
+    }
+
+    .detail-card::before {
+      content: "";
+      position: absolute;
+      height: 3px;
+      width: 35px;
+      background: var(--primary);
+      top: 0;
+      left: 30px;
+      transition: width .4s var(--ease);
+    }
+
+    .detail-card:hover {
+      transform: translateY(-5px);
+      border-color: #e4b5ce;
+      box-shadow: 0 14px 30px rgba(70,25,50,.08);
+    }
+
+    .detail-card:hover::before {
+      width: 80px;
+    }
+
+    .detail-number {
+      display: block;
+      color: var(--primary-dark);
+      font-family: Consolas, monospace;
+      font-size: .74rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .detail-card h5 {
+      font-size: 1.16rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--dark);
+    }
+
+    .detail-card p {
+      color: var(--muted);
+      font-size: .94rem;
+      line-height: 1.9;
+    }
+
+    /* FINAL DE CADA PROJETO */
+
+    .project-bottom {
+      margin-top: 32px;
+      padding-top: 25px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .project-bottom p {
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .project-bottom span {
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .project-separator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin: 15px 0;
+      color: #a58d9d;
+      font-family: Consolas, monospace;
+      font-size: .72rem;
+    }
+
+    .project-separator::before,
+    .project-separator::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: #e6d6e0;
+    }
+
+    /* CONTATO */
+
+    .contact {
+      position: relative;
+      overflow: hidden;
+      background: var(--dark);
+      color: white;
+      padding: 100px 0;
+    }
+
+    .contact::before {
+      content: "";
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      right: -160px;
+      bottom: -220px;
+      border-radius: 50%;
+      background: rgba(233,30,115,.22);
+      filter: blur(100px);
+      pointer-events: none;
+    }
+
+    .contact-layout {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 50px;
+      align-items: end;
+    }
+
+    .contact .section-kicker {
+      color: #f78fba;
+    }
+
+    .contact .section-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+    }
+
+    .contact .section-title span {
+      color: var(--primary);
+    }
+
+    .contact-description {
+      color: #b8abb8;
+      max-width: 550px;
+      margin-top: 20px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 195px;
+    }
+
+    .contact-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 35px;
+      padding: 16px 21px;
+      border: 1px solid #5b4659;
+      border-radius: 9px;
+      color: white;
+      font-weight: 700;
+      font-size: .9rem;
+      transition:
+        transform .35s var(--ease),
+        background .35s,
+        border-color .35s;
+    }
+
+    .contact-link:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    /* FOOTER */
+
+    .footer {
+      padding: 27px 0;
+      background: #120e13;
+      border-top: 1px solid #392b36;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      color: #a393a1;
+      font-size: .82rem;
+    }
+
+    .footer-name {
+      color: white;
+      font-weight: 700;
+    }
+
+    .footer-name span {
+      color: var(--primary);
+    }
+
+    /* RESPONSIVIDADE */
+
+    @media (max-width: 1000px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-panel {
+        max-width: 520px;
+        animation: none;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 7vw, 4.6rem);
+      }
+
+      .about-grid {
+        gap: 35px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 20px 0;
+        flex-direction: column;
+        gap: 17px;
+      }
+
+      .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      .nav-links a {
+        font-size: .78rem;
+      }
+
+      .nav-contact {
+        padding: 8px 12px;
+      }
+
+      .hero-layout {
+        padding: 75px 0;
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .about-grid,
+      .project-banner,
+      .project-overview,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .project-side {
+        min-height: 125px;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .project-side-number {
+        display: none;
+      }
+
+      .project-expand {
+        padding: 0;
+        border: 0;
+      }
+
+      .project-side-label {
+        font-size: .65rem;
+      }
+
+      .project-details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .contact-link {
+        flex: 1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: 91%;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.55rem, 7vw, 2.2rem);
+        letter-spacing: -.06em;
+        white-space: nowrap;
+      }
+
+      .hero-description {
+        font-size: .97rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-panel {
+        padding: 25px;
+      }
+
+      .about-card,
+      .project-main,
+      .project-content,
+      .detail-card {
+        padding: 25px;
+      }
+
+      .project-side {
+        padding: 23px;
+        gap: 15px;
+      }
+
+      .project-side-label {
+        max-width: 80px;
+      }
+
+      .project-expand {
+        font-size: .75rem;
+      }
+
+      .project-overview {
+        gap: 12px;
+      }
+
+      .contact-links {
+        flex-direction: column;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVEGAÇÃO -->
+  <header class="header">
+    <div class="container navbar">
+
+      <a href="#inicio" class="logo">
+        daniela<span>.dev</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato" class="nav-contact">Contato ↗</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- APRESENTAÇÃO -->
+    <section class="hero" id="inicio">
+      <div class="container hero-layout">
+
+        <div>
+
+          <p class="eyebrow animate">
+            Portfólio / Desenvolvimento front-end
+          </p>
+
+          <h1 class="animate delay-1">
+            Daniela <span>Mayara.</span>
+          </h1>
+
+          <p class="hero-description animate delay-2">
+            Sou <strong>Daniela Mayara da Silva Lemos</strong>,
+            estudante de <strong>Ciência de Dados na
+            Fatec Adamantina</strong>. Exploro o desenvolvimento
+            de aplicações web por meio de projetos que
+            envolvem lógica de programação, estruturação
+            de interfaces e implementação de soluções
+            interativas.
+          </p>
+
+          <div class="hero-actions animate delay-3">
+            <a href="#projetos" class="button button-primary">
+              Explorar projetos ↗
+            </a>
+
+            <a href="#sobre" class="button button-outline">
+              Sobre mim
+            </a>
+          </div>
+
+        </div>
+
+        <aside class="hero-panel" aria-label="Resumo profissional">
+
+          <p class="panel-heading">
+            PERFIL / ACADÊMICO
+          </p>
+
+          <div class="panel-item">
+            <small>Nome completo</small>
+            <strong>Daniela Mayara da Silva Lemos</strong>
+          </div>
+
+          <div class="panel-item">
+            <small>Formação</small>
+            <strong>Ciência de Dados</strong>
+          </div>
+
+          <div class="panel-item">
+            <small>Instituição</small>
+            <strong>Fatec Adamantina</strong>
+          </div>
+
+          <div class="panel-item">
+            <small>Tecnologias do projeto</small>
+            <strong>Next.js · JavaScript · CSS</strong>
+          </div>
+
+          <div class="panel-footer">
+            <span class="panel-dot"></span>
+            Em formação acadêmica
+          </div>
+
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- SOBRE MIM -->
+    <section class="section about" id="sobre">
+      <div class="container about-grid">
+
+        <div>
+
+          <p class="section-kicker">
+            01 / Sobre mim
+          </p>
+
+          <h2 class="section-title">
+            Construindo conhecimento
+            através da <span>tecnologia.</span>
+          </h2>
+
+          <p class="about-description">
+            Minha formação em Ciência de Dados
+            representa uma oportunidade de aprofundar
+            meus conhecimentos em tecnologia e programação.
+            Paralelamente aos estudos, exploro o
+            desenvolvimento web por meio de projetos
+            práticos que me permitem experimentar
+            diferentes ferramentas e conceitos.
+          </p>
+
+        </div>
+
+        <div class="about-card">
+
+          <h3>Minha trajetória</h3>
+
+          <p>
+            Sou Daniela Mayara da Silva Lemos e
+            atualmente curso Ciência de Dados na
+            Fatec Adamantina.
+          </p>
+
+          <p>
+            Tenho interesse em compreender como
+            as aplicações são desenvolvidas,
+            desde sua lógica de funcionamento
+            até a construção de interfaces que
+            permitem a interação com o usuário.
+          </p>
+
+          <p>
+            Além do ambiente acadêmico e dos projetos
+            de programação, gosto de ler e jogar,
+            atividades que fazem parte dos meus
+            interesses pessoais.
+          </p>
+
+          <div class="about-info">
+            <p class="info-label">Formação</p>
+            <p class="info-value">
+              Ciência de Dados — Fatec Adamantina
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TODOS OS PROJETOS -->
+    <section class="section projects" id="projetos">
+      <div class="container">
+
+        <div class="projects-heading">
+
+          <p class="section-kicker">
+            02 / Portfólio
+          </p>
+
+          <h2 class="section-title">
+            Projetos e <span>desenvolvimento.</span>
+          </h2>
+
+          <p class="section-description">
+            Nesta seção, apresento meus projetos de
+            forma individual, com informações sobre
+            o contexto de cada solução, as tecnologias
+            utilizadas, o processo de desenvolvimento
+            e os resultados obtidos. Cada projeto
+            possui uma área própria de detalhamento.
+          </p>
+
+        </div>
+
+        <div class="project-list">
+
+          <!-- ======================================
+               PROJETO 01: CHATBOAT ZUZU
+
+               Para adicionar outro projeto,
+               duplique este bloco <details>
+               completo e altere as informações.
+               ====================================== -->
+
+          <details class="project-case" id="projeto-zuzu" open>
+
+            <!-- CARD PRINCIPAL -->
+            <summary class="project-summary">
+
+              <div class="project-banner">
+
+                <div class="project-main">
+
+                  <div>
+
+                    <div class="project-top">
+                      <span class="project-index">
+                        PROJETO / 001
+                      </span>
+
+                      <span class="project-category">
+                        Aplicação Web
+                      </span>
+                    </div>
+
+                    <h3 class="project-name">
+                      Chatboat Zuzu
+                    </h3>
+
+                    <p class="project-description">
+                      Desenvolvimento de um chatbot
+                      demonstrativo baseado em regras
+                      condicionais, utilizando Next.js
+                      e JavaScript para controlar as
+                      respostas e o funcionamento
+                      das interações.
+                    </p>
+
+                  </div>
+
+                  <div class="project-stack">
+                    <span class="stack-tag">Next.js</span>
+                    <span class="stack-tag">JavaScript</span>
+                    <span class="stack-tag">CSS</span>
+                    <span class="stack-tag">If / Else</span>
+                  </div>
+
+                </div>
+
+                <div class="project-side">
+
+                  <span class="project-side-label">
+                    CASE STUDY / 01
+                  </span>
+
+                  <span class="project-side-number"
+                    aria-hidden="true">
+                    01
+                  </span>
+
+                  <div class="project-expand">
+                    <span class="expand-text-closed">
+                      Ver detalhes do projeto
+                    </span>
+
+                    <span class="expand-text-open">
+                      Recolher detalhes
+                    </span>
+
+                    <span class="expand-icon"
+                      aria-hidden="true">
+                      ↓
+                    </span>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </summary>
+
+            <!-- CONTEÚDO EXCLUSIVO DO PROJETO -->
+            <div class="project-content">
+
+              <div class="project-overview">
+
+                <span class="overview-label">
+                  VISÃO GERAL
+                </span>
+
+                <p>
+                  O Chatboat Zuzu foi criado como um
+                  projeto de estudo para compreender,
+                  na prática, o funcionamento de um
+                  chatbot simples. A proposta consistiu
+                  em construir uma aplicação capaz
+                  de apresentar respostas previamente
+                  definidas, utilizando uma base
+                  de conteúdo própria e estruturas
+                  condicionais para determinar o
+                  comportamento das interações.
+                </p>
+
+              </div>
+
+              <div class="details-heading">
+                <h4>Detalhamento do projeto</h4>
+              </div>
+
+              <div class="project-details-grid">
+
+                <!-- ETAPA 01 -->
+                <article class="detail-card">
+
+                  <span class="detail-number">
+                    ETAPA 01 / CONTEXTO
+                  </span>
+
+                  <h5>Problema</h5>
+
+                  <p>
+                    O principal desafio foi compreender
+                    como um chatbot interpreta uma
+                    interação e determina qual resposta
+                    apresentar ao usuário. Para isso,
+                    estabeleci como objetivo desenvolver
+                    uma demonstração funcional e
+                    simplificada, utilizando um conjunto
+                    de regras previamente definido,
+                    sem depender de mecanismos mais
+                    complexos de processamento
+                    de linguagem.
+                  </p>
+
+                </article>
+
+                <!-- ETAPA 02 -->
+                <article class="detail-card">
+
+                  <span class="detail-number">
+                    ETAPA 02 / SOLUÇÃO
+                  </span>
+
+                  <h5>O que eu fiz</h5>
+
+                  <p>
+                    Desenvolvi um chatbot utilizando
+                    o framework Next.js e a linguagem
+                    JavaScript. Criei uma base própria
+                    de respostas e implementei uma
+                    lógica de decisão com estruturas
+                    if e else, relacionando condições
+                    específicas às mensagens que
+                    deveriam ser apresentadas
+                    durante a interação.
+                  </p>
+
+                </article>
+
+                <!-- ETAPA 03 -->
+                <article class="detail-card">
+
+                  <span class="detail-number">
+                    ETAPA 03 / IMPLEMENTAÇÃO
+                  </span>
+
+                  <h5>Como eu fiz</h5>
+
+                  <p>
+                    A aplicação foi construída com
+                    Next.js, utilizando JavaScript
+                    para implementar o comportamento
+                    do chatbot e CSS para definir
+                    sua apresentação visual.
+                    As regras de conversação foram
+                    organizadas por meio de estruturas
+                    condicionais, permitindo associar
+                    cada situação prevista a uma
+                    resposta correspondente da
+                    base de conteúdo.
+                  </p>
+
+                </article>
+
+                <!-- ETAPA 04 -->
+                <article class="detail-card">
+
+                  <span class="detail-number">
+                    ETAPA 04 / RESULTADO
+                  </span>
+
+                  <h5>Resultado</h5>
+
+                  <p>
+                    O resultado foi um chatbot
+                    demonstrativo, com uma base de
+                    respostas criada por mim e
+                    controlada por condições if e else.
+                    O desenvolvimento proporcionou
+                    uma experiência prática na
+                    utilização de JavaScript,
+                    Next.js e CSS, além de contribuir
+                    para a compreensão de fluxos
+                    básicos de interação e lógica
+                    de programação.
+                  </p>
+
+                </article>
+
+              </div>
+
+              <!-- RODAPÉ DO PROJETO -->
+              <div class="project-bottom">
+
+                <p>
+                  Projeto:
+                  <span>Chatboat Zuzu</span>
+                </p>
+
+                <p>
+                  Tecnologias:
+                  <span>Next.js / JavaScript / CSS</span>
+                </p>
+
+              </div>
+
+            </div>
+
+          </details>
+
+          <!-- ======================================
+               ADICIONE NOVOS PROJETOS AQUI
+
+               Estrutura:
+
+               <details class="project-case">
+                 <summary class="project-summary">
+                   Card do novo projeto
+                 </summary>
+
+                 <div class="project-content">
+                   Visão geral
+                   Problema
+                   O que eu fiz
+                   Como eu fiz
+                   Resultado
+                 </div>
+               </details>
+
+               Cada projeto deve manter a mesma
+               estrutura visual e ter um ID único.
+               ====================================== -->
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="contact" id="contato">
+      <div class="container contact-layout">
+
+        <div>
+
+          <p class="section-kicker">
+            03 / Contato
+          </p>
+
+          <h2 class="section-title">
+            Vamos nos <span>conectar.</span>
+          </h2>
+
+          <p class="contact-description">
+            Acompanhe meu perfil profissional e
+            meus projetos por meio do LinkedIn
+            e do GitHub. Esses canais reúnem
+            informações sobre minha trajetória
+            e meus trabalhos em desenvolvimento.
+          </p>
+
+        </div>
+
+        <div class="contact-links">
+
+          <a
+            class="contact-link"
+            href="https://www.linkedin.com/in/daniela-lemos-06a795399"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <a
+            class="contact-link"
+            href="https://github.com/[seu-usuario]"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+            <span aria-hidden="true">↗</span>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="container footer-content">
+
+      <p class="footer-name">
+        Daniela Mayara <span>/</span> Portfólio
+      </p>
+
+      <p>
+        Ciência de Dados — Fatec Adamantina
+      </p>
+
+    </div>
+  </footer>
+
+</body>
+</html>
